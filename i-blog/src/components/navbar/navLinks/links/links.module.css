@@ -1,0 +1,13 @@
+.container {
+  /* background-color: darkgoldenrod; */
+  min-width: 100px;
+  padding: 10px;
+  text-align: center;
+  font-weight: 500;
+  border-radius: 20px;
+}
+
+.active {
+  background-color: var(--text);
+  color: var(--bg);
+}

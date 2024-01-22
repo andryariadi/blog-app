@@ -1,0 +1,12 @@
+.links {
+  /* background-color: aqua; */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logout {
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 500;
+}
