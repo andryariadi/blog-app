@@ -1,5 +1,7 @@
 "use client";
 
+import UseAnimations from "react-useanimations";
+import menu from "react-useanimations/lib/menu2";
 import styles from "./navLinks.module.css";
 import Links from "./links/Links";
 import { useState } from "react";
@@ -44,9 +46,11 @@ export default function NavLinks() {
             <Links item={{ title: "Login", path: "/login" }} />
           )}
         </div>
-        <button className={styles.menuBtn} onClick={() => setOpen((prev) => !prev)}>
+        {/* <button className={styles.menuBtn} onClick={() => setOpen((prev) => !prev)}>
           Menu
-        </button>
+        </button> */}
+        <UseAnimations className={styles.menuBtn} animation={menu} size={50} onClick={() => setOpen((prev) => !prev)} />
+
         {open && (
           <div className={styles.mobileLink}>
             {links.map((link) => (

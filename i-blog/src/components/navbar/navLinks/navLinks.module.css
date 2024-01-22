@@ -28,7 +28,7 @@
   }
 
   .mobileLink {
-    /* background-color: brown; */
+    background-color: #0080ff;
     position: absolute;
     right: 0;
     top: 100px;
@@ -39,5 +39,6 @@
     align-items: center;
     justify-content: center;
     gap: 30px;
+    transition: all 0.5s ease;
   }
 }
