@@ -16,7 +16,7 @@ export default function NavLinks() {
     },
     {
       title: "Blog",
-      path: "/posts",
+      path: "/blog",
     },
   ];
 
