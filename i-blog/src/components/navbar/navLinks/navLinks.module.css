@@ -10,3 +10,34 @@
   border-radius: 5px;
   font-weight: 500;
 }
+
+.mobileLink,
+.menuBtn {
+  /* background-color: brown; */
+  display: none;
+}
+
+@media (max-width: 884px) {
+  .links {
+    display: none;
+  }
+
+  .menuBtn {
+    display: block;
+    cursor: pointer;
+  }
+
+  .mobileLink {
+    /* background-color: brown; */
+    position: absolute;
+    right: 0;
+    top: 100px;
+    width: 100%;
+    height: calc(100dvh - 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+}

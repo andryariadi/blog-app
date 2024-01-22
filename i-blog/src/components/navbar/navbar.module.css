@@ -5,3 +5,11 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.logo {
+  transition: all 0.35s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}

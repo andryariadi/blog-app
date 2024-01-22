@@ -9,7 +9,9 @@ export default function Links({ item }) {
   return (
     <>
       <div className={`${styles.container} ${pathName === item.path && styles.active}`}>
-        <Link href={item.path}>{item.title}</Link>
+        <Link href={item.path} className={styles.link}>
+          {item.title}
+        </Link>
       </div>
     </>
   );

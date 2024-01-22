@@ -6,8 +6,8 @@ export default function Navbar() {
   return (
     <>
       <div className={styles.container}>
-        <div>
-          <Image src="/images/logo.svg" alt="logo" width={150} height={150} className="logo" />
+        <div className={styles.logo}>
+          <Image src="/images/logo.svg" alt="logo" width={140} height={140} className="logo" />
         </div>
         <div>
           <NavLinks />
