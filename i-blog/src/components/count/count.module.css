@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.countContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.count {
+  font-size: 27px;
+  color: #0080ff;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 10px;
+  font-weight: 500;
+}
