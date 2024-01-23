@@ -43,3 +43,23 @@
   font-weight: bold;
   cursor: pointer;
 }
+
+@media screen and (max-width: 1024px) {
+  .container {
+    gap: 60px;
+  }
+
+  .imgContainer {
+    height: 500px;
+  }
+
+  .contactImg {
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 640px) {
+  .imgContainer {
+    display: none;
+  }
+}

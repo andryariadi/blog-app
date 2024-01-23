@@ -37,7 +37,41 @@
   object-fit: contain;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .container {
+    gap: 35px;
+  }
+
+  .title {
+    font-size: 39px;
+  }
+
+  .imgContainer {
+    flex: 1;
+    position: relative;
+    height: 500px;
+  }
+
+  .aboutImg {
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    gap: 32px;
+  }
+
+  .title {
+    font-size: 35px;
+  }
+
+  .imgContainer {
+    height: 400px;
+  }
+}
+
+@media (max-width: 640px) {
   .container {
     flex-direction: column;
     text-align: center;
