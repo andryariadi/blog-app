@@ -17,7 +17,7 @@ export default function AboutPage() {
           <Count />
         </div>
         <div className={styles.imgContainer}>
-          <Image src="/images/about.png" alt="about" fill className={styles.aboutImg} />
+          <Image src="/images/about.svg" alt="about" fill className={styles.aboutImg} />
         </div>
       </div>
     </>
