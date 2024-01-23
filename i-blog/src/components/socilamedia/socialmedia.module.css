@@ -4,3 +4,15 @@
   gap: 50px;
   width: 70%;
 }
+
+@media (max-width: 1024px) {
+  .brandContainer {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .brandContainer {
+    width: 90%;
+  }
+}

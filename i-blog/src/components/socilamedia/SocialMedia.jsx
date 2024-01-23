@@ -2,7 +2,6 @@
 
 import styles from "./socialmedia.module.css";
 import Lottie from "lottie-react";
-import discord from "@/libs/icons/discord.json";
 import discord2 from "@/libs/icons/discord2.json";
 import instagram from "@/libs/icons/instagram.json";
 import github from "@/libs/icons/github.json";
