@@ -15,19 +15,19 @@ export default function Count() {
           <>
             <div className={styles.countContainer}>
               <div className={styles.count}>
-                <CountUp start={0} end={10} duration={3} /> K+
+                <CountUp start={0} end={10} duration={4} /> K+
               </div>
               <p className={styles.title}>Year of Experiance</p>
             </div>
             <div className={styles.countContainer}>
               <div className={styles.count}>
-                <CountUp start={0} end={243} duration={3} /> K+
+                <CountUp start={0} end={243} duration={4} /> K+
               </div>
               <p className={styles.title}>People reached</p>
             </div>
             <div className={styles.countContainer}>
               <div className={styles.count}>
-                <CountUp start={0} end={5} duration={3} /> K+
+                <CountUp start={0} end={5} duration={4} /> K+
               </div>
               <p className={styles.title}>Services and plugins</p>
             </div>

@@ -57,4 +57,5 @@
 }
 
 .heroImg {
+  object-fit: contain;
 }
