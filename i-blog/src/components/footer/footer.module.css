@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: space-evenly;
   height: 60px;
+  color: gray;
   /* background-color: brown; */
 }
 
@@ -10,4 +11,5 @@
 }
 
 .text {
+  font-size: 13px;
 }

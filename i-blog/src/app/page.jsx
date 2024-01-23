@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./home.module.css";
+import SocialMedia from "@/components/socilamedia/SocialMedia";
 
 export default function Home() {
   return (
@@ -12,9 +13,7 @@ export default function Home() {
             <button className={styles.btn}>Learn More</button>
             <button className={styles.btn}>Contact</button>
           </div>
-          <div className={styles.brandContainer}>
-            <Image src="/images/brands.png" alt="brands" fill className={styles.brandImg} />
-          </div>
+          <SocialMedia />
         </div>
         <div className={styles.imgContainer}>
           <Image src="/images/hero.gif" alt="hero" fill className={styles.heroImg} />
