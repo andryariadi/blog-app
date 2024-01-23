@@ -55,7 +55,22 @@
   line-height: 23px;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 1024px) {
+  .container {
+    gap: 50px;
+  }
+
+  .imgContainer {
+    flex: 1;
+    height: 50vh;
+  }
+
+  .textContainer {
+    flex: 1;
+  }
+}
+
+@media (max-width: 640px) {
   .imgContainer {
     display: none;
   }

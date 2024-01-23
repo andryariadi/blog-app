@@ -118,6 +118,7 @@ a {
   }
 }
 
+/* lg */
 @media (max-width: 1024px) {
   .container {
     width: 768px;
@@ -126,6 +127,7 @@ a {
   }
 }
 
+/* md */
 @media (max-width: 768px) {
   .container {
     width: 640px;
@@ -133,6 +135,7 @@ a {
   }
 }
 
+/* sm */
 @media (max-width: 640px) {
   .container {
     width: 475px;
