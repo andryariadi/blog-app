@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  gap: 100px;
+}
+
+.textContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.subTitle {
+  font-size: 15px;
+}
+
+.title {
+  background: linear-gradient(90deg, #0080ff, #d6dde2);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 45px;
+}
+
+.desc {
+  font-size: 15px;
+}
+
+.imgContainer {
+  flex: 1;
+  position: relative;
+}
+
+.aboutImg {
+}
