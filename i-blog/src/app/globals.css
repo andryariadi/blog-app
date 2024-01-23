@@ -129,6 +129,7 @@ a {
 @media (max-width: 768px) {
   .container {
     width: 640px;
+    min-height: calc(100dvh - 20px);
   }
 }
 
