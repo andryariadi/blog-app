@@ -1,22 +1,19 @@
+import { getPosts } from "@/libs/database/data";
 import styles from "./blog.module.css";
 import PostCard from "@/components/postCard/PostCard";
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const posts = await getPosts();
+
+  console.log(posts, "<----diblogpage");
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.cardContainer}>
-          <PostCard />
-        </div>
-        <div className={styles.cardContainer}>
-          <PostCard />
-        </div>
-        <div className={styles.cardContainer}>
-          <PostCard />
-        </div>
-        <div className={styles.cardContainer}>
-          <PostCard />
-        </div>
+        {posts.map((post) => (
+          <div className={styles.cardContainer}>
+            <PostCard posts={post} />
+          </div>
+        ))}
       </div>
     </>
   );

@@ -2,7 +2,8 @@ import Link from "next/link";
 import styles from "./postcard.module.css";
 import Image from "next/image";
 
-export default function PostCard() {
+export default function PostCard({ post }) {
+  console.log(post, "<----postcard");
   return (
     <>
       <div className={styles.container}>
