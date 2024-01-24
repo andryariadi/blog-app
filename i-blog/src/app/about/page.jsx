@@ -5,7 +5,7 @@ import styles from "./about.module.css";
 import Count from "@/components/count/Count";
 
 import { motion } from "framer-motion";
-import { fadeIn } from "../variants";
+import { fadeIn } from "../../libs/motions/variants";
 
 export default function AboutPage() {
   return (

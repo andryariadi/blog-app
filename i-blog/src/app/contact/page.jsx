@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "./contact.module.css";
 
 import { motion } from "framer-motion";
-import { fadeIn } from "../variants";
+import { fadeIn } from "../../libs/motions/variants";
 
 export default function ContactPage() {
   return (

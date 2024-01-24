@@ -5,7 +5,7 @@ import styles from "./home.module.css";
 import SocialMedia from "@/components/socilamedia/SocialMedia";
 
 import { motion } from "framer-motion";
-import { fadeIn } from "./variants";
+import { fadeIn } from "../libs/motions/variants";
 export default function Home() {
   return (
     <>
