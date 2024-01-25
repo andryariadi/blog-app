@@ -7,6 +7,11 @@ import Count from "@/components/count/Count";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../libs/motions/variants";
 
+// export const metadata = {
+//   title: "Next.js 14 iBlog About Page",
+//   description: "andry ariadi blog about description",
+// };
+
 export default function AboutPage() {
   return (
     <>

@@ -6,6 +6,11 @@ import styles from "./contact.module.css";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../libs/motions/variants";
 
+// export const metadata = {
+//   title: "Next.js 14 iBlog Contact Page",
+//   description: "andry ariadi blog contact description",
+// };
+
 export default function ContactPage() {
   return (
     <>

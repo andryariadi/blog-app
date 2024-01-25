@@ -6,8 +6,11 @@ import Footer from "@/components/footer/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "iBlog",
-  description: "andry ariadi blog",
+  title: {
+    default: "iBlog",
+    template: "%s | iBlog",
+  },
+  description: "andry ariadi iblog",
 };
 
 export default function RootLayout({ children }) {
