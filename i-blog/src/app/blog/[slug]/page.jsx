@@ -19,9 +19,8 @@ export default async function PostDetailPage({ params }) {
         <div className={styles.textContainer}>
           <h1 className={styles.title}>{post.title}</h1>
           <div className={styles.detail}>
-            <Image src="https://images.pexels.com/photos/9595972/pexels-photo-9595972.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="avatar" width={50} height={50} className={styles.avatar} />
             <Suspense fallback={<div>Loading...</div>}>
-              <PostUser />
+              <PostUser userId={post.userId} />
             </Suspense>
             <div className={styles.detailText}>
               <span className={styles.detailTitle}>Published</span>

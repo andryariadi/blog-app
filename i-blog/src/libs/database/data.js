@@ -24,6 +24,17 @@ export const getPostBySlug = async (slug) => {
   }
 };
 
+export const getUserById = async (id) => {
+  try {
+    connectToDB();
+    const user = await User.findById(id);
+    return user;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch detail user!");
+  }
+};
+
 export const getUsers = async () => {
   try {
     connectToDB();
@@ -32,16 +43,5 @@ export const getUsers = async () => {
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fetch users!");
-  }
-};
-
-export const getUserById = async (id) => {
-  try {
-    connectToDB();
-    const user = await User.findOne({ id });
-    return user;
-  } catch (error) {
-    console.log(error);
-    throw new Error("Failed to fetch detail user!");
   }
 };

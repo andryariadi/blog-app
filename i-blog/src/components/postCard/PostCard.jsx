@@ -1,7 +1,6 @@
 import Link from "next/link";
 import styles from "./postcard.module.css";
 import Image from "next/image";
-import userImg from "../../../public/images/noavatar.png";
 
 export default function PostCard({ posts }) {
   console.log(posts, "<----postcard");
