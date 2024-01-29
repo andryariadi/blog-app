@@ -5,6 +5,7 @@ import menu from "react-useanimations/lib/menu2";
 import styles from "./navLinks.module.css";
 import Links from "./links/Links";
 import { useState } from "react";
+import { handleLogout } from "@/libs/database/actions/action";
 
 const links = [
   {
@@ -24,10 +25,9 @@ const links = [
     path: "/blog",
   },
 ];
-export default function NavLinks() {
+export default function NavLinks({ session }) {
   const [open, setOpen] = useState(false);
 
-  const session = true;
   const isAdmin = true;
 
   return (
@@ -37,18 +37,17 @@ export default function NavLinks() {
           {links.map((link) => (
             <Links item={link} key={link.title} />
           ))}
-          {session ? (
+          {session?.user ? (
             <>
-              {isAdmin && <Links item={{ title: "Admin", path: "/admin" }} />}
-              <button className={styles.logout}>Logout</button>
+              {session.user?.isAdmin && <Links item={{ title: "Admin", path: "/admin" }} />}
+              <form action={handleLogout}>
+                <button className={styles.logout}>Logout</button>
+              </form>
             </>
           ) : (
             <Links item={{ title: "Login", path: "/login" }} />
           )}
         </div>
-        {/* <button className={styles.menuBtn} onClick={() => setOpen((prev) => !prev)}>
-          Menu
-        </button> */}
         <UseAnimations className={styles.menuBtn} animation={menu} size={50} onClick={() => setOpen((prev) => !prev)} />
 
         {open && (
