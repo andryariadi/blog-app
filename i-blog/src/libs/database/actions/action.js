@@ -4,6 +4,8 @@ import { signIn, signOut } from "@/libs/auth/auth";
 import { connectToDB } from "..";
 import User from "../models/user.model";
 import bcrypt from "bcrypt";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 export const handleGithubLogin = async () => {
   await signIn("github");
@@ -13,17 +15,19 @@ export const handleLogout = async () => {
   await signOut();
 };
 
-export const register = async (formData) => {
+export const register = async (previousState, formData) => {
   const { username, email, password, passwordRepeat, imgUrl } = Object.fromEntries(formData);
 
-  if (password !== passwordRepeat) return "Passwords do not match";
+  if (password !== passwordRepeat) return { error: "Passwords do not match" };
 
   try {
     connectToDB();
 
-    const user = await User.findOne({ email });
+    const userByUsername = await User.findOne({ username });
+    const userByEmail = await User.findOne({ email });
 
-    if (user) return "User already exists";
+    if (userByUsername) return { error: "Username already exists" };
+    if (userByEmail) return { error: "Email already exists" };
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -37,10 +41,15 @@ export const register = async (formData) => {
 
     await newUser.save();
     console.log("User created to DB");
+
+    return { success: true };
   } catch (error) {
     console.log(error);
     return { error: "Failed to register!" };
   }
+
+  // revalidatePath("/login");
+  // redirect("/login");
 };
 
 export const login = async (formData) => {
