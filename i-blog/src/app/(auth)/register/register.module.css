@@ -2,17 +2,29 @@
   /* background-color: aquamarine; */
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 70px;
+}
+
+.imgContainer {
+  flex: 2;
+  position: relative;
+  height: 500px;
+  /* background-color: antiquewhite; */
+}
+
+.registerImg {
+  object-fit: contain;
 }
 
 .formContainer {
-  /* background-color: bisque; */
-  width: 500px;
+  flex: 1;
+  min-width: 100px;
   background-color: var(--bgSoft);
   display: flex;
   flex-direction: column;
   text-align: center;
   gap: 30px;
-  padding: 50px;
+  padding: 40px 80px 40px 80px;
   border-radius: 5px;
 }

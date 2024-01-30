@@ -35,6 +35,10 @@
   width: fit-content;
 }
 
+.link {
+  font-size: 14px;
+}
+
 .login {
   color: var(--btn);
 }

@@ -10,12 +10,12 @@ import { useEffect } from "react";
 export default function RegisterForm() {
   const [state, formAction] = useFormState(register, undefined);
   const router = useRouter();
+  //   console.log({ state }, "<--registerform");
 
   useEffect(() => {
     state?.success && router.push("/login");
   }, [state, router]);
 
-  console.log({ state }, "<--registerform");
   return (
     <form action={formAction} className={styles.form}>
       <input type="text" placeholder="username" name="username" />
@@ -24,7 +24,7 @@ export default function RegisterForm() {
       <input type="password" placeholder="password again" name="passwordRepeat" />
       <button>Register</button>
       {state?.error && <p className={styles.error}>{state?.error}</p>}
-      <Link href="/login">
+      <Link href="/login" className={styles.link}>
         Have an account? <b className={styles.login}>Login</b>
       </Link>
     </form>
