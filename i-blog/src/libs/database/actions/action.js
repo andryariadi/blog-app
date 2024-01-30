@@ -35,6 +35,6 @@ export const register = async (formData) => {
     console.log("User created to DB");
   } catch (error) {
     console.log(error);
-    return { error: "Failed to register!" };
+    return { error: "Failed to register" };
   }
 };
