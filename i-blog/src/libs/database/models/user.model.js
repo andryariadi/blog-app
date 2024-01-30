@@ -17,8 +17,6 @@ const UserSchema = new Schema(
     },
     password: {
       type: String,
-      required: true,
-      min: 5,
     },
     imgUrl: {
       type: String,
@@ -31,6 +29,6 @@ const UserSchema = new Schema(
   { timestamps: true }
 );
 
-const User = models.User || model("User", UserSchema);
+const User = models?.User || model("User", UserSchema);
 
 export default User;
