@@ -21,7 +21,27 @@ export const authConfig = {
       return session;
     },
     authorized({ auth, request }) {
-      //   console.log(auth, "<-----diauthconfig");
+      const user = auth?.user;
+
+      const isOnLoginPage = request.nextUrl.pathname === "/login";
+      const isOnAdminPage = request.nextUrl.pathname.startsWith("/admin");
+      const isOnBlogsPage = request.nextUrl.pathname.startsWith("/blog");
+
+      // ONLY ADMIN CAN REACH THE ADMIN DASHBOAR
+      if (isOnAdminPage && !user?.isAdmin) {
+        return false;
+      }
+
+      // ONLY AUTHENTICATED USERS CAN REACH THE BLOG PAGE
+      if (isOnBlogsPage && !user) {
+        return false;
+      }
+
+      // ONLY UNAUTHENTICATED USERS CAN REACH THE LOGIN PAGE
+      if (isOnLoginPage && user) {
+        return Response.redirect(new URL("/", request.nextUrl));
+      }
+
       return true;
     },
   },
