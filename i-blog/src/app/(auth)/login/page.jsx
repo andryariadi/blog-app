@@ -3,7 +3,7 @@ import LoginForm from "@/components/loginForm/LoginForm";
 import { handleGithubLogin } from "@/libs/database/actions/action";
 import Image from "next/image";
 
-export default async function LoginPage() {
+export default function LoginPage() {
   return (
     <>
       <div className={styles.container}>
@@ -12,7 +12,7 @@ export default async function LoginPage() {
         </div>
         <div className={styles.formContainer}>
           <form action={handleGithubLogin}>
-            <button>Login with Github</button>
+            <button className={styles.githubBtn}>Login with Github</button>
           </form>
           <LoginForm />
         </div>

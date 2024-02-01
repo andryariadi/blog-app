@@ -10,11 +10,10 @@ import { useEffect } from "react";
 export default function LoginForm() {
   const [state, formAction] = useFormState(login, undefined);
   const router = useRouter();
-  //   console.log({ state }, "<--registerform");
 
-  useEffect(() => {
-    state?.success && router.push("/login");
-  }, [state, router]);
+  //   useEffect(() => {
+  //     state?.success && router.push("/login");
+  //   }, [state, router]);
 
   return (
     <form action={formAction} className={styles.form}>
@@ -23,7 +22,7 @@ export default function LoginForm() {
       <button>Login</button>
       {state?.error && <p className={styles.error}>{state?.error}</p>}
       <Link href="/register" className={styles.link}>
-        {"Don't have an account?"} <b className={styles.login}>Register</b>
+        {"Don't have an account?"} <b className={styles.register}>Register</b>
       </Link>
     </form>
   );

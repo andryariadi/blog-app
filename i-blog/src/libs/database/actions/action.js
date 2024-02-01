@@ -52,13 +52,16 @@ export const register = async (previousState, formData) => {
   // redirect("/login");
 };
 
-export const login = async (formData) => {
+export const login = async (previousState, formData) => {
   const { username, password } = Object.fromEntries(formData);
 
   try {
     await signIn("credentials", { username, password });
   } catch (error) {
     console.log(error);
-    return { error: "Failed to login!" };
+
+    if (error.type === "CredentialsSignin") return { error: "Invalid Username or Password!" };
+
+    throw error;
   }
 };
