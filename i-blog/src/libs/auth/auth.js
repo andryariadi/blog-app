@@ -12,6 +12,7 @@ const login = async (credentials) => {
     connectToDB();
 
     const user = await User.findOne({ username: credentials.username });
+    console.log(user, "<-----diauth");
 
     if (!user) throw new Error("User not found!");
 
@@ -19,7 +20,12 @@ const login = async (credentials) => {
 
     if (!isPasswordCorrect) throw new Error("Invalid password!");
 
-    return user;
+    return {
+      id: user._id.toString(),
+      name: user.username,
+      email: user.email,
+      isAdmin: user.isAdmin,
+    };
   } catch (error) {
     console.log(error);
     throw new Error("Failed to login!");

@@ -47,9 +47,6 @@ export const register = async (previousState, formData) => {
     console.log(error);
     return { error: "Failed to register!" };
   }
-
-  // revalidatePath("/login");
-  // redirect("/login");
 };
 
 export const login = async (previousState, formData) => {
