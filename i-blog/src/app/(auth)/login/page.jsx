@@ -7,14 +7,14 @@ export default function LoginPage() {
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.imgContainer}>
-          <Image src="/images/login.svg" alt="login" fill className={styles.loginImg} />
-        </div>
         <div className={styles.formContainer}>
           <form action={handleGithubLogin}>
             <button className={styles.githubBtn}>Login with Github</button>
           </form>
           <LoginForm />
+        </div>
+        <div className={styles.imgContainer}>
+          <Image src="/images/login.svg" alt="login" fill className={styles.loginImg} />
         </div>
       </div>
     </>

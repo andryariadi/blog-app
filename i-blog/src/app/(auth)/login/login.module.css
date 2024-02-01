@@ -1,5 +1,5 @@
 .container {
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -10,7 +10,7 @@
   flex: 2;
   position: relative;
   height: 500px;
-  background-color: antiquewhite;
+  /* background-color: antiquewhite; */
 }
 
 .loginImg {
