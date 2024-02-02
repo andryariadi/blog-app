@@ -64,7 +64,7 @@ export const login = async (previousState, formData) => {
   }
 };
 
-export const addPost = async (formData) => {
+export const addPost = async (previousState, formData) => {
   const { title, desc, slug, userId } = Object.fromEntries(formData);
 
   try {
@@ -79,6 +79,9 @@ export const addPost = async (formData) => {
 
     await newPost.save();
     console.log("Post created to DB");
+
+    revalidatePath("/blog");
+    revalidatePath("/admin");
   } catch (error) {
     console.log(error);
     return { error: "Failed to add post!" };
@@ -93,13 +96,16 @@ export const deletePost = async (formData) => {
 
     await Post.findOneAndDelete(id);
     console.log("Post deleted from DB");
+
+    revalidatePath("/blog");
+    revalidatePath("/admin");
   } catch (error) {
     console.log(error);
     return { error: "Failed to delete post!" };
   }
 };
 
-export const addUser = async (formData) => {
+export const addUser = async (previousState, formData) => {
   const { username, email, password, imgUrl } = Object.fromEntries(formData);
 
   try {
@@ -114,6 +120,8 @@ export const addUser = async (formData) => {
 
     await newUser.save();
     console.log("User created to DB");
+
+    revalidatePath("/admin");
   } catch (error) {
     console.log(error);
     return { error: "Failed to add user!" };
@@ -126,8 +134,11 @@ export const deleteUser = async (formData) => {
   try {
     connectToDB();
 
+    await Post.deleteMany({ userId: id });
     await User.findOneAndDelete(id);
     console.log("User deleted from DB");
+
+    revalidatePath("/admin");
   } catch (error) {
     console.log(error);
     return { error: "Failed to delete user!" };
