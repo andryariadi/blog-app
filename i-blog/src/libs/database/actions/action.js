@@ -98,3 +98,38 @@ export const deletePost = async (formData) => {
     return { error: "Failed to delete post!" };
   }
 };
+
+export const addUser = async (formData) => {
+  const { username, email, password, imgUrl } = Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+
+    const newUser = new User({
+      username,
+      email,
+      password,
+      imgUrl,
+    });
+
+    await newUser.save();
+    console.log("User created to DB");
+  } catch (error) {
+    console.log(error);
+    return { error: "Failed to add user!" };
+  }
+};
+
+export const deleteUser = async (formData) => {
+  const { id } = Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+
+    await User.findOneAndDelete(id);
+    console.log("User deleted from DB");
+  } catch (error) {
+    console.log(error);
+    return { error: "Failed to delete user!" };
+  }
+};
