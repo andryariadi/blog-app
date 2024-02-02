@@ -3,6 +3,7 @@
 import { signIn, signOut } from "@/libs/auth/auth";
 import { connectToDB } from "..";
 import User from "../models/user.model";
+import Post from "../models/post.model";
 import bcrypt from "bcrypt";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
@@ -60,5 +61,40 @@ export const login = async (previousState, formData) => {
     if (error.type === "CredentialsSignin") return { error: "Invalid Username or Password!" };
 
     throw error;
+  }
+};
+
+export const addPost = async (formData) => {
+  const { title, desc, slug, userId } = Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+
+    const newPost = new Post({
+      title,
+      desc,
+      slug,
+      userId,
+    });
+
+    await newPost.save();
+    console.log("Post created to DB");
+  } catch (error) {
+    console.log(error);
+    return { error: "Failed to add post!" };
+  }
+};
+
+export const deletePost = async (formData) => {
+  const { id } = Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+
+    await Post.findOneAndDelete(id);
+    console.log("Post deleted from DB");
+  } catch (error) {
+    console.log(error);
+    return { error: "Failed to delete post!" };
   }
 };
