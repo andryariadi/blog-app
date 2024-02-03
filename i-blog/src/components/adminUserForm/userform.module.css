@@ -26,8 +26,5 @@
   border-radius: 5px;
   color: var(--textColor);
   font-weight: bold;
-}
-
-.container button .btnTitle {
   font-size: 16px;
 }
