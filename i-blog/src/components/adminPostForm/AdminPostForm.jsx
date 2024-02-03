@@ -4,13 +4,22 @@ import { addPost } from "@/libs/database/actions/action";
 import styles from "./postform.module.css";
 import { useFormState } from "react-dom";
 import { IoAddCircle } from "react-icons/io5";
+import { useRef } from "react";
 
 export default function AdminPostForm({ userId }) {
   const [state, formAction] = useFormState(addPost, undefined);
-  // const { pending } = useFormStatus();
+  const ref = useRef(null);
   return (
     <>
-      <form action={formAction} className={styles.container}>
+      <form
+        ref={ref}
+        action={async (formData) => {
+          ref.current?.reset();
+
+          await formAction(formData);
+        }}
+        className={styles.container}
+      >
         <h1>Add New Post</h1>
         <input type="hidden" name="userId" value={userId} />
         <input type="text" placeholder="Title" name="title" />
