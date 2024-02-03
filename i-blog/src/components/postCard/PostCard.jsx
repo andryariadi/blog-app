@@ -9,7 +9,7 @@ export default function PostCard({ posts }) {
       <div className={styles.container}>
         <div className={styles.top}>
           <div className={styles.imgContainer}>
-            <Image src={posts.imgUrl} alt="post" fill className={styles.img} />
+            <Image src={posts.imgUrl || "/images/noavatar.png"} alt="post" fill className={styles.img} />
           </div>
           <span className={styles.date}>01.01.2024</span>
         </div>
