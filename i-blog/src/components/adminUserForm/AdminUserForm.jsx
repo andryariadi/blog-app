@@ -8,7 +8,7 @@ export default function AdminUserForm() {
   const [state, formAction] = useFormState(addUser, undefined);
   return (
     <>
-      <form action={formAction} className={styles.form}>
+      <form action={formAction} className={styles.container}>
         <h1>Add New User</h1>
         <input type="text" placeholder="Username" name="username" />
         <input type="email" placeholder="Email Address" name="email" />
