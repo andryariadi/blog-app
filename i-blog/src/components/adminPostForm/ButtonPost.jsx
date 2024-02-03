@@ -4,12 +4,18 @@ export default function ButtonPost() {
   const { pending } = useFormStatus();
   return (
     <>
-      <button>
-        <div>
-          <IoAddCircle size={20} />
-        </div>
-        <span>{pending ? "Adding..." : "Add"}</span>
-      </button>
+      {pending ? (
+        <button>Adding...</button>
+      ) : (
+        <>
+          <button>
+            <div>
+              <IoAddCircle size={20} />
+            </div>
+            <span>Add</span>
+          </button>
+        </>
+      )}
     </>
   );
 }
