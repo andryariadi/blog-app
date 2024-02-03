@@ -2,9 +2,10 @@ import { getUsers } from "@/libs/database/data";
 import styles from "./adminuser.module.css";
 import { deleteUser } from "@/libs/database/actions/action";
 import Image from "next/image";
+import { RiDeleteBin6Fill } from "react-icons/ri";
 
 export default async function AdminUsers() {
-  const users = await getUsers();
+  const users = (await getUsers())?.sort((a, b) => a.username.localeCompare(b.username));
 
   return (
     <>
@@ -18,7 +19,9 @@ export default async function AdminUsers() {
             </div>
             <form action={deleteUser}>
               <input type="hidden" name="id" value={user.id} />
-              <button className={styles.deleteBtn}>Delete</button>
+              <button className={styles.deleteBtn}>
+                <RiDeleteBin6Fill size={23} color="#871132" />
+              </button>
             </form>
           </div>
         ))}

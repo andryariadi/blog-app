@@ -2,9 +2,10 @@ import { getPosts } from "@/libs/database/data";
 import styles from "./adminpost.module.css";
 import Image from "next/image";
 import { deletePost } from "@/libs/database/actions/action";
+import { RiDeleteBin6Fill } from "react-icons/ri";
 
 export default async function AdminPosts() {
-  const posts = await getPosts();
+  const posts = (await getPosts())?.sort((a, b) => a.title.localeCompare(b.title));
 
   return (
     <>
@@ -18,7 +19,9 @@ export default async function AdminPosts() {
             </div>
             <form action={deletePost}>
               <input type="hidden" name="id" value={post.id} />
-              <button className={styles.deleteBtn}>Delete</button>
+              <button className={styles.deleteBtn}>
+                <RiDeleteBin6Fill size={23} color="#871132" />
+              </button>
             </form>
           </div>
         ))}

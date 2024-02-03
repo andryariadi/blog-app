@@ -3,6 +3,7 @@
 import { addUser } from "@/libs/database/actions/action";
 import styles from "./userform.module.css";
 import { useFormState } from "react-dom";
+import { IoPersonAddSharp } from "react-icons/io5";
 
 export default function AdminUserForm() {
   const [state, formAction] = useFormState(addUser, undefined);
@@ -15,11 +16,18 @@ export default function AdminUserForm() {
         <input type="password" placeholder="Password" name="password" />
         <input type="text" placeholder="Image Url" name="imgUrl" />
         <select name="isAdmin">
-          <option selected>Role ?</option>
+          <option selected disabled>
+            Role ?
+          </option>
           <option value="false">User</option>
           <option value="true">Admin</option>
         </select>
-        <button>Add</button>
+        <button>
+          <div>
+            <IoPersonAddSharp size={20} />
+          </div>
+          <span className={styles.btnTitle}>Add</span>
+        </button>
         {state?.error && <p className={styles.error}>{state?.error}</p>}
       </form>
     </>
