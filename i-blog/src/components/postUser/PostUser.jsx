@@ -10,10 +10,10 @@ export default async function PostUser({ userId }) {
   return (
     <>
       <div className={styles.container}>
-        <Image src={user.imgUrl || userImg} alt="avatar" width={50} height={50} className={styles.avatar} />
+        <Image src={user?.imgUrl || userImg} alt="avatar" width={50} height={50} className={styles.avatar} />
         <div className={styles.textContainer}>
           <span className={styles.title}>Author</span>
-          <span className={styles.username}>{user.username}</span>
+          <span className={styles.username}>{user?.username}</span>
         </div>
       </div>
     </>

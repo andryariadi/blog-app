@@ -94,7 +94,7 @@ export const deletePost = async (formData) => {
   try {
     connectToDB();
 
-    await Post.findOneAndDelete(id);
+    await Post.findByIdAndDelete(id);
     console.log("Post deleted from DB");
 
     revalidatePath("/blog");
@@ -135,7 +135,7 @@ export const deleteUser = async (formData) => {
     connectToDB();
 
     await Post.deleteMany({ userId: id });
-    await User.findOneAndDelete(id);
+    await User.findByIdAndDelete(id);
     console.log("User deleted from DB");
 
     revalidatePath("/admin");
