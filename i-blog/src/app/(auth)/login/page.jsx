@@ -1,6 +1,6 @@
 import styles from "./login.module.css";
 import LoginForm from "@/components/loginForm/LoginForm";
-import { handleGithubLogin } from "@/libs/database/actions/action";
+import { handleGithubLogin, handleGoogleLogin } from "@/libs/database/actions/action";
 import Image from "next/image";
 
 export default function LoginPage() {
@@ -9,7 +9,10 @@ export default function LoginPage() {
       <div className={styles.container}>
         <div className={styles.formContainer}>
           <form action={handleGithubLogin}>
-            <button className={styles.githubBtn}>Login with Github</button>
+            <button className={styles.oAuth}>GitHub</button>
+          </form>
+          <form action={handleGoogleLogin}>
+            <button className={styles.oAuth}>Google</button>
           </form>
           <LoginForm />
         </div>

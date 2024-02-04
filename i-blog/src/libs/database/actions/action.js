@@ -6,10 +6,13 @@ import User from "../models/user.model";
 import Post from "../models/post.model";
 import bcrypt from "bcrypt";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 
 export const handleGithubLogin = async () => {
   await signIn("github");
+};
+
+export const handleGoogleLogin = async () => {
+  await signIn("google");
 };
 
 export const handleLogout = async () => {
