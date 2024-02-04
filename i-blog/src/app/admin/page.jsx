@@ -6,6 +6,11 @@ import AdminUsers from "@/components/adminUsers/AdminUser";
 import AdminUserForm from "@/components/adminUserForm/AdminUserForm";
 import { auth } from "@/libs/auth/auth";
 
+export const metadata = {
+  title: "Admin",
+  description: "andry ariadi blog admin description",
+};
+
 export default async function AdminPage() {
   const session = await auth();
 
