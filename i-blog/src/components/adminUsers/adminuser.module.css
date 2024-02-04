@@ -1,32 +1,38 @@
-.container {
+.containerUp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.containerDown {
   /* background-color: aquamarine; */
   overflow-y: auto;
-  max-height: 500px;
+  max-height: 485px;
 }
 
 /* scrollbar */
-.container {
+.containerDown {
   --sb-track-color: #232e33;
   --sb-thumb-color: #0080ff;
   --sb-size: 8px;
 }
 
-.container::-webkit-scrollbar {
+.containerDown::-webkit-scrollbar {
   width: var(--sb-size);
 }
 
-.container::-webkit-scrollbar-track {
+.containerDown::-webkit-scrollbar-track {
   background: var(--sb-track-color);
   border-radius: 30px;
 }
 
-.container::-webkit-scrollbar-thumb {
+.containerDown::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
   border-radius: 30px;
 }
 
 @supports not selector(::-webkit-scrollbar) {
-  .container {
+  .containerDown {
     scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
 }

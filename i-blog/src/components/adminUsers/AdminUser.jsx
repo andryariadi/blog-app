@@ -9,8 +9,11 @@ export default async function AdminUsers() {
 
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.containerUp}>
         <h1>Users</h1>
+        <h1>Search</h1>
+      </div>
+      <div className={styles.containerDown}>
         {users?.map((user) => (
           <div className={styles.userContainer} key={user.id}>
             <div className={styles.userDetail}>

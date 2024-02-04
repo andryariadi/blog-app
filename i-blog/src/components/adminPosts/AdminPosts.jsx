@@ -9,8 +9,11 @@ export default async function AdminPosts() {
 
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.containerUp}>
         <h1>Posts</h1>
+        <h1>Search</h1>
+      </div>
+      <div className={styles.containerDown}>
         {posts?.map((post) => (
           <div className={styles.postContainer} key={post.id}>
             <div className={styles.postDetail}>
