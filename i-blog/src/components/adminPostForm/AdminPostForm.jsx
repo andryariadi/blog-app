@@ -26,7 +26,7 @@ export default function AdminPostForm({ userId }) {
         <input type="text" placeholder="Title" name="title" />
         <input type="text" placeholder="Slug" name="slug" />
         <input type="text" placeholder="Image Url" name="imgUrl" />
-        <textarea placeholder="Description" name="desc" id="" rows="10"></textarea>
+        <textarea placeholder="Description" name="desc" id="" rows="7"></textarea>
         <ButtonPost />
         {state?.error && <p className={styles.error}>{state?.error}</p>}
       </form>
