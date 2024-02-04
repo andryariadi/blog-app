@@ -18,10 +18,10 @@ export default function RegisterForm() {
 
   return (
     <form action={formAction} className={styles.form}>
-      <input type="text" placeholder="username" name="username" />
-      <input type="email" placeholder="email" name="email" />
-      <input type="password" placeholder="password" name="password" />
-      <input type="password" placeholder="password again" name="passwordRepeat" />
+      <input type="text" placeholder="Username" name="username" />
+      <input type="email" placeholder="Email" name="email" />
+      <input type="password" placeholder="Password" name="password" />
+      <input type="password" placeholder="Confirm password" name="passwordRepeat" />
       <button>Register</button>
       {state?.error && <p className={styles.error}>{state?.error}</p>}
       <Link href="/login" className={styles.link}>

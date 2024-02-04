@@ -19,7 +19,7 @@ body {
 }
 
 /* scrollbar */
-body {
+/* body {
   --sb-track-color: #232e33;
   --sb-thumb-color: #0080ff;
   --sb-size: 10px;
@@ -39,7 +39,7 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
   border-radius: 10px;
-}
+} */
 /* scrollbar */
 
 a {

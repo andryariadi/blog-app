@@ -17,8 +17,8 @@ export default function LoginForm() {
 
   return (
     <form action={formAction} className={styles.form}>
-      <input type="text" placeholder="username" name="username" />
-      <input type="password" placeholder="password" name="password" />
+      <input type="text" placeholder="Username" name="username" />
+      <input type="password" placeholder="Password" name="password" />
       <button>Login</button>
       {state?.error && <p className={styles.error}>{state?.error}</p>}
       <Link href="/register" className={styles.link}>
