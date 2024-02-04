@@ -27,6 +27,10 @@ export const register = async (previousState, formData) => {
   try {
     connectToDB();
 
+    if (!username) return { error: "Username is required!" };
+    if (!email) return { error: "Email is required!" };
+    if (!password) return { error: "Password is required!" };
+
     const userByUsername = await User.findOne({ username });
     const userByEmail = await User.findOne({ email });
 

@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  gap: 30px;
+  gap: 20px;
 }
 
 .form input {
-  padding: 20px;
+  padding: 18px;
   background-color: var(--bg);
   color: var(--textColor);
   border: none;
@@ -14,7 +14,7 @@
 }
 
 .form button {
-  padding: 20px;
+  padding: 18px;
   cursor: pointer;
   background-color: var(--btn);
   color: var(--textColor);
@@ -31,7 +31,7 @@
   margin: auto;
   border: 2px solid crimson;
   border-radius: 5px;
-  padding: 15px;
+  padding: 10px;
   width: fit-content;
 }
 

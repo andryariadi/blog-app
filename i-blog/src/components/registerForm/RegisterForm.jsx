@@ -7,6 +7,7 @@ import styles from "./registerform.module.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import ButtonRegister from "./ButtonRegister";
 export default function RegisterForm() {
   const [state, formAction] = useFormState(register, undefined);
   const router = useRouter();
@@ -22,7 +23,7 @@ export default function RegisterForm() {
       <input type="email" placeholder="Email" name="email" />
       <input type="password" placeholder="Password" name="password" />
       <input type="password" placeholder="Confirm password" name="passwordRepeat" />
-      <button>Register</button>
+      <ButtonRegister />
       {state?.error && <p className={styles.error}>{state?.error}</p>}
       <Link href="/login" className={styles.link}>
         Have an account? <b className={styles.login}>Login</b>
