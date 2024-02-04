@@ -70,6 +70,11 @@ export const addPost = async (previousState, formData) => {
   try {
     connectToDB();
 
+    if (!title) return { error: "Title is required!" };
+    if (!desc) return { error: "Description is required!" };
+    if (!slug) return { error: "Slug is required!" };
+    if (!userId) return { error: "User ID is required!" };
+
     const newPost = new Post({
       title,
       desc,
@@ -106,16 +111,25 @@ export const deletePost = async (formData) => {
 };
 
 export const addUser = async (previousState, formData) => {
-  const { username, email, password, imgUrl } = Object.fromEntries(formData);
+  const { username, email, password, imgUrl, isAdmin } = Object.fromEntries(formData);
 
   try {
     connectToDB();
 
+    if (!username) return { error: "Username is required!" };
+    if (!email) return { error: "Email is required!" };
+    if (!password) return { error: "Password is required!" };
+    if (!isAdmin) return { error: "Role is required!" };
+
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
     const newUser = new User({
       username,
       email,
-      password,
+      password: hashedPassword,
       imgUrl,
+      isAdmin,
     });
 
     await newUser.save();
