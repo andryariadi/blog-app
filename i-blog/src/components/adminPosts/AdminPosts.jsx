@@ -3,6 +3,7 @@ import styles from "./adminpost.module.css";
 import Image from "next/image";
 import { deletePost } from "@/libs/database/actions/action";
 import { RiDeleteBin6Fill } from "react-icons/ri";
+import Search from "../search/Search";
 
 export default async function AdminPosts() {
   const posts = (await getPosts())?.sort((a, b) => a.title.localeCompare(b.title));
@@ -11,7 +12,7 @@ export default async function AdminPosts() {
     <>
       <div className={styles.containerUp}>
         <h1>Posts</h1>
-        <h1>Search</h1>
+        <Search />
       </div>
       <div className={styles.containerDown}>
         {posts?.map((post) => (
