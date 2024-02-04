@@ -29,11 +29,22 @@
 }
 
 .oAuth {
-  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-size: 16px;
+  padding: 10px;
   width: 100%;
-  background-color: azure;
+  background-color: transparent;
+  border: 3px solid var(--bg);
   color: #000;
   font-weight: bold;
-  border: none;
   border-radius: 5px;
+}
+
+.oAuth:hover {
+  background-color: var(--bg);
+  color: azure;
+  transform-origin: all 1s ease;
 }
