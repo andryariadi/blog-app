@@ -3,6 +3,7 @@ import styles from "./slug.module.css";
 import PostUser from "@/components/postUser/PostUser";
 import { Suspense } from "react";
 import { getPostBySlug } from "@/libs/database/data";
+import SkeletonUser from "@/components/skeleton/SkeletonUser";
 
 export const generateMetadata = async ({ params }) => {
   const { slug } = params;
@@ -30,7 +31,7 @@ export default async function PostDetailPage({ params }) {
         <div className={styles.textContainer}>
           <h1 className={styles.title}>{post.title}</h1>
           <div className={styles.detail}>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<SkeletonUser />}>
               <PostUser userId={post.userId} />
             </Suspense>
             <div className={styles.detailText}>
