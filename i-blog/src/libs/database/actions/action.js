@@ -72,7 +72,7 @@ export const login = async (previousState, formData) => {
 };
 
 export const addPost = async (previousState, formData) => {
-  const { title, desc, slug, userId } = Object.fromEntries(formData);
+  const { title, desc, slug, imgUrl, userId } = Object.fromEntries(formData);
 
   try {
     connectToDB();
@@ -86,6 +86,7 @@ export const addPost = async (previousState, formData) => {
       title,
       desc,
       slug,
+      imgUrl,
       userId,
     });
 

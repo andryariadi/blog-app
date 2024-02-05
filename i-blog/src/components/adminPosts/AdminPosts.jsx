@@ -36,7 +36,7 @@ export default async function AdminPosts({ searchParams }) {
           </div>
         ))}
       </div>
-      <Pagination count={count} />
+      {posts.length > 0 && <Pagination count={count} />}
     </>
   );
 }
