@@ -3,14 +3,19 @@ import { connectToDB } from "./index";
 import User from "./models/user.model";
 import { unstable_noStore as noStore } from "next/cache";
 
-export const getPosts = async (q) => {
-  console.log(q, "<-----datapost");
-
+export const getPosts = async (q, page) => {
   const regex = new RegExp(q, "i");
+
+  const ITEM_PER_PAGE = 6;
 
   try {
     connectToDB();
-    const posts = await Post.find({ title: { $regex: regex } }).sort({ title: 1 });
+
+    const posts = await Post.find({ title: { $regex: regex } })
+      .sort({ title: 1 })
+      .limit(ITEM_PER_PAGE)
+      .skip(ITEM_PER_PAGE * (page - 1));
+
     return posts;
   } catch (error) {
     console.log(error);
@@ -42,7 +47,6 @@ export const getUserById = async (id) => {
 };
 
 export const getUsers = async (query) => {
-  console.log({ query }, "<-----datauser");
   const regex = new RegExp(query, "i");
 
   try {

@@ -4,13 +4,15 @@ import Image from "next/image";
 import { deletePost } from "@/libs/database/actions/action";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import Search from "../search/Search";
+import Pagination from "../pagination/Pagination";
 
 export default async function AdminPosts({ searchParams }) {
   console.log(searchParams, "<--diposts");
 
   const q = searchParams?.q || "";
+  const page = searchParams?.page || 1;
 
-  const posts = await getPosts(q);
+  const posts = await getPosts(q, page);
 
   return (
     <>
@@ -34,6 +36,7 @@ export default async function AdminPosts({ searchParams }) {
           </div>
         ))}
       </div>
+      <Pagination />
     </>
   );
 }
