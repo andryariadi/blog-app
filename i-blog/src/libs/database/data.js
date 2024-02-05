@@ -10,7 +10,7 @@ export const getPosts = async (q) => {
 
   try {
     connectToDB();
-    const posts = await Post.find({ title: { $regex: regex } });
+    const posts = await Post.find({ title: { $regex: regex } }).sort({ title: 1 });
     return posts;
   } catch (error) {
     console.log(error);
@@ -41,10 +41,13 @@ export const getUserById = async (id) => {
   }
 };
 
-export const getUsers = async () => {
+export const getUsers = async (query) => {
+  console.log({ query }, "<-----datauser");
+  const regex = new RegExp(query, "i");
+
   try {
     connectToDB();
-    const users = await User.find();
+    const users = await User.find({ username: { $regex: regex } }).sort({ username: 1 });
     return users;
   } catch (error) {
     console.log(error);

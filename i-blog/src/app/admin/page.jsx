@@ -31,7 +31,7 @@ export default async function AdminPage({ searchParams }) {
         <div className={styles.row}>
           <div className={styles.col}>
             <Suspense fallback={<div>Loading...</div>}>
-              <AdminUsers />
+              <AdminUsers searchParams={searchParams} />
             </Suspense>
           </div>
           <div className={styles.col}>

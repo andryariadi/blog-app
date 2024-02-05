@@ -16,7 +16,7 @@ export default async function AdminPosts({ searchParams }) {
     <>
       <div className={styles.containerUp}>
         <h1>Posts</h1>
-        <Search />
+        <Search placeholder={"Search Posts..."} />
       </div>
       <div className={styles.containerDown}>
         {posts?.map((post) => (
