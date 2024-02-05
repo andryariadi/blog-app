@@ -7,12 +7,12 @@ import Search from "../search/Search";
 import Pagination from "../pagination/Pagination";
 
 export default async function AdminPosts({ searchParams }) {
-  console.log(searchParams, "<--diposts");
-
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
 
-  const posts = await getPosts(q, page);
+  const { count, posts } = await getPosts(q, page);
+
+  console.log({ posts, count, searchParams }, "<--diposts");
 
   return (
     <>
@@ -36,7 +36,7 @@ export default async function AdminPosts({ searchParams }) {
           </div>
         ))}
       </div>
-      <Pagination />
+      <Pagination count={count} />
     </>
   );
 }

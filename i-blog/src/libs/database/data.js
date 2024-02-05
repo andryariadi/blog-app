@@ -11,12 +11,13 @@ export const getPosts = async (q, page) => {
   try {
     connectToDB();
 
+    const count = await Post.find({ title: { $regex: regex } }).count();
     const posts = await Post.find({ title: { $regex: regex } })
       .sort({ title: 1 })
       .limit(ITEM_PER_PAGE)
       .skip(ITEM_PER_PAGE * (page - 1));
 
-    return posts;
+    return { count, posts };
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fetch posts!");
