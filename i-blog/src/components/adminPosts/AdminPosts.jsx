@@ -1,12 +1,16 @@
-import { getPosts } from "@/libs/database/data";
 import styles from "./adminpost.module.css";
+import { getPosts } from "@/libs/database/data";
 import Image from "next/image";
 import { deletePost } from "@/libs/database/actions/action";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import Search from "../search/Search";
 
-export default async function AdminPosts() {
-  const posts = (await getPosts())?.sort((a, b) => a.title.localeCompare(b.title));
+export default async function AdminPosts({ searchParams }) {
+  console.log(searchParams, "<--diposts");
+
+  const q = searchParams?.q || "";
+
+  const posts = await getPosts(q);
 
   return (
     <>

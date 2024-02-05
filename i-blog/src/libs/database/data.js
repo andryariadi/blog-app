@@ -3,10 +3,14 @@ import { connectToDB } from "./index";
 import User from "./models/user.model";
 import { unstable_noStore as noStore } from "next/cache";
 
-export const getPosts = async () => {
+export const getPosts = async (q) => {
+  console.log(q, "<-----datapost");
+
+  const regex = new RegExp(q, "i");
+
   try {
     connectToDB();
-    const posts = await Post.find();
+    const posts = await Post.find({ title: { $regex: regex } });
     return posts;
   } catch (error) {
     console.log(error);

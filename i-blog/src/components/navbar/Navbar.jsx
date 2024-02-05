@@ -7,7 +7,7 @@ import { auth } from "@/libs/auth/auth";
 export default async function Navbar() {
   const session = await auth();
 
-  console.log(session, "<-----dinavbar");
+  // console.log(session, "<-----dinavbar");
   return (
     <>
       <div className={styles.container}>

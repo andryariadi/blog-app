@@ -8,12 +8,12 @@ import bcrypt from "bcrypt";
 import { authConfig } from "./auth.config";
 
 const login = async (credentials) => {
-  console.log({ credentials }, "<-----diauth");
+  // console.log({ credentials }, "<-----diauth");
   try {
     connectToDB();
 
     const user = await User.findOne({ username: credentials.username });
-    console.log(user, "<-----diauth");
+    // console.log(user, "<-----diauth");
 
     if (!user) throw new Error("User not found!");
 
@@ -62,7 +62,7 @@ export const {
   ],
   callbacks: {
     async signIn({ user, account, profile }) {
-      console.log({ user, account, profile }, "<-----diauthhh");
+      // console.log({ user, account, profile }, "<-----diauthhh");
 
       if (account?.provider === "github") {
         connectToDB();

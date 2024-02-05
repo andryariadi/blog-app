@@ -11,7 +11,8 @@ export const metadata = {
   description: "andry ariadi blog admin description",
 };
 
-export default async function AdminPage() {
+export default async function AdminPage({ searchParams }) {
+  console.log(searchParams, "<--adminpage");
   const session = await auth();
 
   return (
@@ -20,7 +21,7 @@ export default async function AdminPage() {
         <div className={styles.row}>
           <div className={styles.col}>
             <Suspense fallback={<div>Loading...</div>}>
-              <AdminPosts />
+              <AdminPosts searchParams={searchParams} />
             </Suspense>
           </div>
           <div className={styles.col}>
