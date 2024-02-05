@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
@@ -39,6 +39,10 @@
   font-weight: 300;
   color: gray;
   width: 90%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Ubah menjadi jumlah baris yang diinginkan */
+  -webkit-box-orient: vertical;
 }
 
 .link {
