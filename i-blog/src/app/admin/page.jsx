@@ -5,6 +5,7 @@ import AdminPostForm from "@/components/adminPostForm/AdminPostForm";
 import AdminUsers from "@/components/adminUsers/AdminUser";
 import AdminUserForm from "@/components/adminUserForm/AdminUserForm";
 import { auth } from "@/libs/auth/auth";
+import SkeletonPost from "@/components/skeleton/SkeletonPost";
 
 export const metadata = {
   title: "Admin",
@@ -20,7 +21,7 @@ export default async function AdminPage({ searchParams }) {
       <div className={styles.container}>
         <div className={styles.row}>
           <div className={styles.col}>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<SkeletonPost />}>
               <AdminPosts searchParams={searchParams} />
             </Suspense>
           </div>
@@ -30,7 +31,7 @@ export default async function AdminPage({ searchParams }) {
         </div>
         <div className={styles.row}>
           <div className={styles.col}>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<SkeletonPost />}>
               <AdminUsers searchParams={searchParams} />
             </Suspense>
           </div>
