@@ -26,7 +26,7 @@ export default function RegisterForm() {
       <ButtonRegister />
       {state?.error && <p className={styles.error}>{state?.error}</p>}
       <Link href="/login" className={styles.link}>
-        Have an account? <b className={styles.login}>Login</b>
+        Have an account ? <b className={styles.login}>Login</b>
       </Link>
     </form>
   );
