@@ -12,7 +12,7 @@ export default async function AdminPosts({ searchParams }) {
 
   const { count, posts } = await getPosts(q, page);
 
-  console.log({ posts, count, searchParams }, "<--diposts");
+  // console.log({ posts, count }, "<--diposts");
 
   return (
     <>

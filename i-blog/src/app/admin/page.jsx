@@ -12,7 +12,7 @@ export const metadata = {
 };
 
 export default async function AdminPage({ searchParams }) {
-  console.log(searchParams, "<--adminpage");
+  // console.log(searchParams, "<--adminpage");
   const session = await auth();
 
   return (

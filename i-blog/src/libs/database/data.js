@@ -17,7 +17,9 @@ export const getPosts = async (q, page) => {
       .limit(ITEM_PER_PAGE)
       .skip(ITEM_PER_PAGE * (page - 1));
 
-    return { count, posts };
+    const getAllPosts = await Post.find();
+
+    return { count, posts, getAllPosts };
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fetch posts!");
@@ -35,18 +37,6 @@ export const getPostBySlug = async (slug) => {
   }
 };
 
-export const getUserById = async (id) => {
-  noStore();
-  try {
-    connectToDB();
-    const user = await User.findById(id);
-    return user;
-  } catch (error) {
-    console.log(error);
-    throw new Error("Failed to fetch detail user!");
-  }
-};
-
 export const getUsers = async (query) => {
   const regex = new RegExp(query, "i");
 
@@ -57,5 +47,17 @@ export const getUsers = async (query) => {
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fetch users!");
+  }
+};
+
+export const getUserById = async (id) => {
+  noStore();
+  try {
+    connectToDB();
+    const user = await User.findById(id);
+    return user;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to fetch detail user!");
   }
 };

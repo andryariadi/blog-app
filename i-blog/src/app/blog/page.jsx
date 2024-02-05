@@ -11,13 +11,13 @@ export default async function BlogPage() {
   const posts = await getPosts();
   const users = await getUsers();
 
-  console.log({ posts, users }, "<----diblogpage");
+  // console.log(posts, users, "<----diblogpage");
   return (
     <>
       <div className={styles.container}>
-        {posts?.map((post) => (
+        {posts?.getAllPosts.map((post) => (
           <div className={styles.cardContainer} key={post._id}>
-            <PostCard posts={post} />
+            <PostCard post={post} />
           </div>
         ))}
       </div>
