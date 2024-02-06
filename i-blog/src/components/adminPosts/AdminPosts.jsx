@@ -6,6 +6,18 @@ import { RiDeleteBin6Fill } from "react-icons/ri";
 import Search from "../search/Search";
 import Pagination from "../pagination/Pagination";
 
+// const deletePost = async (id) => {
+//   const res = await fetch(`localhost:3000/api/blog/${id}`, {
+//     method: "DELETE",
+//     body: JSON.stringify({ id }),
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   });
+//   const data = await res.json();
+//   return data;
+// };
+
 export default async function AdminPosts({ searchParams }) {
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;

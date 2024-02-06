@@ -8,7 +8,7 @@ export const GET = async () => {
 
     const posts = await Post.find().sort({ createdAt: -1 });
 
-    return NextResponse(JSON.stringify(posts), { status: 200 });
+    return NextResponse.json(posts, { status: 200 });
   } catch (error) {
     console.log(error);
     throw new Error("Failed to fetch posts!");
