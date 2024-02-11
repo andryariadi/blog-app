@@ -28,7 +28,7 @@ const links = [
 export default function NavLinks({ session }) {
   const [open, setOpen] = useState(false);
 
-  const isAdmin = true;
+  // const isAdmin = true;
 
   return (
     <>
