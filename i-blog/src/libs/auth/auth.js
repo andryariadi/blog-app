@@ -64,7 +64,7 @@ export const {
     async signIn({ user, account, profile }) {
       // console.log({ user, account, profile }, "<-----diauthhh");
 
-      if (account?.provider === "github") {
+      if (account?.provider === "github" || account?.provider === "google") {
         connectToDB();
         try {
           const user = await User.findOne({ email: profile.email });
@@ -73,7 +73,7 @@ export const {
             const newUser = new User({
               username: profile.name,
               email: profile.email,
-              imgUrl: profile.avatar_url,
+              imgUrl: profile.avatar_url || profile.picture,
             });
 
             await newUser.save();
