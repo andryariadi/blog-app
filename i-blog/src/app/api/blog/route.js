@@ -16,12 +16,10 @@ export const GET = async () => {
 };
 
 // Fungsi untuk membuat pos baru
-export const POST = async (request, { body }) => {
+export const POST = async (request) => {
+  const { title, content, slug } = await request.json();
   try {
     connectToDB();
-
-    // Ekstrak data dari tubuh permintaan
-    const { title, content, slug } = body;
 
     // Buat pos baru
     const newPost = new Post({

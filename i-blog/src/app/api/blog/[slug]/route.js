@@ -20,12 +20,12 @@ export const GET = async (request, { params }) => {
   }
 };
 
-export const DELETE = async (request, id) => {
-  const { id } = params;
+export const DELETE = async (request, { params }) => {
+  const { slug } = params;
   try {
     connectToDB();
 
-    const deletedPost = await Post.findByIdAndDelete(id);
+    const deletedPost = await Post.findOneAndDelete({ slug });
 
     if (!deletedPost) {
       return NextResponse.json("Post not found!", { status: 404 });
@@ -38,24 +38,26 @@ export const DELETE = async (request, id) => {
   }
 };
 
-export const UPDATE = async (request, { params, body }) => {
-  const { id } = params;
+export const PUT = async (request, { params }) => {
+  const { slug } = params;
   try {
-    connectToDB();
-
-    // Dapatkan data pos yang ingin diperbarui dari body permintaan
-    const { title, content } = body;
-
-    // Temukan dan perbarui pos berdasarkan ID
-    const updatedPost = await Post.findByIdAndUpdate(id, { title, content }, { new: true });
-
-    if (!updatedPost) {
-      return NextResponse.json("Post not found!", { status: 404 });
+    if (!slug) {
+      throw new Error("Slug is missing!");
     }
 
-    return NextResponse.json(updatedPost, { status: 200 });
+    connectToDB();
+
+    const { title, content } = await request.json();
+
+    const updatedProduct = await Post.findOneAndUpdate({ slug }, { title, content }, { new: true });
+
+    if (!updatedProduct) {
+      return NextResponse.json({ error: "Product not found!" }, { status: 404 });
+    }
+
+    return NextResponse.json({ message: "Product updated successfully!", updatedProduct }, { status: 200 });
   } catch (error) {
     console.log(error);
-    throw new Error("Failed to update post!");
+    return NextResponse.json({ error: "Failed to update product!" }, { status: 500 });
   }
 };
